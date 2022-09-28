@@ -20,12 +20,4 @@ public class SpringbootApplication {
 		application.run(args);
 	}
 
-	@Bean
-	public Holoman holoman() {
-		Holoman holoman = new Holoman();
-		holoman.setName("hyeonse");
-		holoman.setHowLong(60);
-		return holoman;
-	}
-
 }
