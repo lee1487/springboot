@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SpringbootApplication {
 
-	@GetMapping("/hello")
+	@GetMapping("/")
 	public String hello() {
-		return "hello";
+		return "HELLO SPRING";
 	}
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootApplication.class, args);
