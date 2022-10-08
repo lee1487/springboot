@@ -9,13 +9,17 @@ import org.springframework.validation.annotation.Validated;
 @Component
 public class SampleListener implements ApplicationRunner{
 
-	@Value("${hyeonse.name}")
+	@Value("${hyeonse.fullname}")
 	private String name;
+
+	@Value("${hyeonse.age}")
+	private int age;
 
 	@Override
 	public void run(ApplicationArguments arguments) throws Exception {
 		System.out.println("================");
 		System.out.println(name);
+		System.out.println(age);
 		System.out.println("================");
 	}
 
