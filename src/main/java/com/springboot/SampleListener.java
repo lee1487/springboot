@@ -18,6 +18,8 @@ public class SampleListener implements ApplicationRunner{
 		System.out.println("================");
 		System.out.println(properties.getName());
 		System.out.println(properties.getAge());
+		System.out.println(properties.getFullname());
+		System.out.println(properties.getSessionTimeout());
 		System.out.println("================");
 	}
 
