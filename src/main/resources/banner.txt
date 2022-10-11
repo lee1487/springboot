@@ -1,3 +1,0 @@
-========================
-HYEONSE Spring Boot ${spring-boot.version}
-========================

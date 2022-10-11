@@ -11,15 +11,11 @@ import org.springframework.validation.annotation.Validated;
 public class SampleListener implements ApplicationRunner{
 
 	@Autowired
-	private String hello;
-
-	@Autowired
 	private HyeonseProperties properties;
 
 	@Override
 	public void run(ApplicationArguments arguments) throws Exception {
 		System.out.println("================");
-		System.out.println(hello);
 		System.out.println(properties.getName());
 		System.out.println(properties.getFullname());
 		System.out.println("================");
