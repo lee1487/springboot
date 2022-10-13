@@ -1,24 +1,27 @@
 package com.springboot;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
-import org.springframework.validation.annotation.Validated;
 
 @Component
 public class SampleListener implements ApplicationRunner{
+
+	private Logger logger = LoggerFactory.getLogger(SampleListener.class);
 
 	@Autowired
 	private HyeonseProperties properties;
 
 	@Override
 	public void run(ApplicationArguments arguments) throws Exception {
-		System.out.println("================");
-		System.out.println(properties.getName());
-		System.out.println(properties.getFullname());
-		System.out.println("================");
+		logger.debug("===============================");
+		logger.debug(properties.getName());
+		logger.debug(properties.getFullname());
+		logger.debug("===============================");
+
 	}
 
 
