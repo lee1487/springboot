@@ -34,6 +34,9 @@ public class SampleControllerTest {
 	public void hello() throws Exception {
 		when(mockSampleService.getName()).thenReturn("whiteship");
 
+		webTestClient.get().uri("/hello").exchange().expectStatus().isOk()
+			.expectBody(String.class).isEqualTo("hello whiteship");
+
 	}
 
 }
