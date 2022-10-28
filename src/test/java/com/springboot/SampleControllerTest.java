@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gargoylesoftware.htmlunit.Page;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlHeading1;
@@ -22,13 +23,16 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 class SampleControllerTest {
 
 	@Autowired
-	WebClient webClient;
+	MockMvc mockMvc;
+	
+	@Autowired
+	ObjectMapper objectMapper;
 
 	@Test
 	public void hello() throws Exception {
-		HtmlPage page = webClient.getPage("/hello");
-		HtmlHeading1 h1 = page.getFirstByXPath("//h1");
-		Assertions.assertThat(h1.getTextContent()).isEqualToIgnoringCase("hyeonse");
+		mockMvc.perform(get("/hello"))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$._links.self").exists());
 	}
 
 }
