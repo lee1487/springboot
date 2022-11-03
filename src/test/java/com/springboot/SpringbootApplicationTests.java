@@ -7,7 +7,6 @@ import org.springframework.core.env.Environment;
 import org.springframework.test.context.TestPropertySource;
 import org.assertj.core.api.Assertions;
 
-@TestPropertySource(locations = "classpath:/test.properties")
 @SpringBootTest
 class SpringbootApplicationTests {
 
@@ -16,8 +15,6 @@ class SpringbootApplicationTests {
 
 	@Test
 	void contextLoads() {
-		Assertions.assertThat(environment.getProperty("hyeonse.name"))
-				.isEqualTo("hyeonse2");
 	}
 
 }
