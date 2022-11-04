@@ -1,6 +1,11 @@
 package com.springboot.account;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
@@ -17,8 +22,25 @@ class AccountRepositoryTest {
 	@Autowired AccountRepository accountRepository;
 
 	@Test
-	void di() {
+	void di() throws SQLException {
+//		try(Connection connection = dataSource.getConnection()) {
+//			 DatabaseMetaData metaData = connection.getMetaData();
+//			 System.out.println(metaData.getURL());
+//			 System.out.println(metaData.getDriverName());
+//			 System.out.println(metaData.getUserName());
+//		};
+		Account account = new Account();
+		account.setUsername("hyeonse");
+		account.setPassword("pass");
 
+		Account newAccount = accountRepository.save(account);
+
+		assertThat(newAccount).isNotNull();
+		Account existingAccount = accountRepository.findByUsername(newAccount.getUsername());
+		assertThat(existingAccount).isNotNull();
+
+		Account nonExistingAccount = accountRepository.findByUsername("keesun");
+		assertThat(nonExistingAccount).isNull();
 	}
 
 }
