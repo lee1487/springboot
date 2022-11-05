@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
+import java.util.Optional;
 
 import javax.sql.DataSource;
 
@@ -36,11 +37,11 @@ class AccountRepositoryTest {
 		Account newAccount = accountRepository.save(account);
 
 		assertThat(newAccount).isNotNull();
-		Account existingAccount = accountRepository.findByUsername(newAccount.getUsername());
-		assertThat(existingAccount).isNotNull();
+		Optional<Account> existingAccount = accountRepository.findByUsername(newAccount.getUsername());
+		assertThat(existingAccount).isNotEmpty();
 
-		Account nonExistingAccount = accountRepository.findByUsername("keesun");
-		assertThat(nonExistingAccount).isNull();
+		Optional<Account> nonExistingAccount = accountRepository.findByUsername("keesun");
+		assertThat(nonExistingAccount).isEmpty();
 	}
 
 }

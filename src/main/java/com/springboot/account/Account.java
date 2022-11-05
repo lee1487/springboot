@@ -14,6 +14,8 @@ public class Account {
 
 	private String username;
 	private String password;
+	private String email;
+
 	public Long getId() {
 		return id;
 	}
@@ -32,21 +34,13 @@ public class Account {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	@Override
-	public int hashCode() {
-		return Objects.hash(id, password, username);
+
+
+	public String getEmail() {
+		return email;
 	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Account other = (Account) obj;
-		return Objects.equals(id, other.id) && Objects.equals(password, other.password)
-				&& Objects.equals(username, other.username);
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 
