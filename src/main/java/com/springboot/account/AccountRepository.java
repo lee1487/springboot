@@ -1,7 +1,11 @@
 package com.springboot.account;
 
-import org.springframework.data.repository.CrudRepository;
+import java.util.Optional;
 
-public interface AccountRepository extends CrudRepository<Account, String> {
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface AccountRepository extends MongoRepository<Account, String> {
+
+	Optional<Account> findByEmail(String email);
 
 }

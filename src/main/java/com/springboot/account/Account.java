@@ -2,9 +2,9 @@ package com.springboot.account;
 
 import javax.persistence.Id;
 
-import org.springframework.data.redis.core.RedisHash;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@RedisHash("accounts")
+@Document("accounts")
 public class Account {
 
 	@Id
@@ -30,9 +30,6 @@ public class Account {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-
-
 
 
 }
