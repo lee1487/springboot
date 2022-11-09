@@ -1,16 +1,24 @@
 package com.springboot.account;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.neo4j.core.schema.Node;
+import org.springframework.data.neo4j.core.schema.Relationship;
 
-@Document("accounts")
+@Node
 public class Account {
 
-	@Id
+	@Id @GeneratedValue
 	private String id;
 	private String username;
 	private String email;
+
+	@Relationship(type = "has")
+	private Set<Role> roles = new HashSet<Role>();
 
 	public String getId() {
 		return id;
@@ -30,6 +38,14 @@ public class Account {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	public Set<Role> getRoles() {
+		return roles;
+	}
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
+
+
 
 
 }
