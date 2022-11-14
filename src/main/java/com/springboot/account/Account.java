@@ -12,24 +12,23 @@ public class Account {
 	private String username;
 	private String password;
 
-	protected Long getId() {
+	public Long getId() {
 		return id;
 	}
-	protected void setId(Long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
-	protected String getUsername() {
+	public String getUsername() {
 		return username;
 	}
-	protected void setUsername(String username) {
+	public void setUsername(String username) {
 		this.username = username;
 	}
-	protected String getPassword() {
+	public String getPassword() {
 		return password;
 	}
-	protected void setPassword(String password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
-
 
 }
