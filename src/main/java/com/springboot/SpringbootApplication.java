@@ -14,13 +14,4 @@ public class SpringbootApplication {
 		SpringApplication.run(SpringbootApplication.class, args);
 	}
 
-	@Bean
-	public WebClientCustomizer webClientCustomizer() {
-		return webClientBuilder -> webClientBuilder.baseUrl("http://localhost:8080");
-	}
-
-	@Bean
-	public RestTemplateCustomizer restTemplateCustomizer() {
-		 return restTemplate -> restTemplate.setRequestFactory(new HttpComponentsClientHttpRequestFactory());
-	}
 }
