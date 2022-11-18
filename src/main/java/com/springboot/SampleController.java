@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class SampleController {
 
 	@GetMapping("/hello")
-	public String hello() throws InterruptedException {
+	public String hello() {
 		return "hello";
 	}
 
 	@GetMapping("/world")
-	public String world() throws InterruptedException {
+	public String world() {
 		return "world";
 	}
 }
