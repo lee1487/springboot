@@ -1,11 +1,7 @@
 package com.springboot;
 
-import org.springframework.data.jdbc.repository.query.Query;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface BookRepository extends CrudRepository<Book, Integer>{
+public interface BookRepository extends JpaRepository<Book, Integer>{
 
-	@Query("select * from Book where isbn = :isbn")
-	Book findByIsbn(@Param("isbn")String isbn);
 }

@@ -1,16 +1,18 @@
 package com.springboot;
 
-import java.time.LocalDate;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-import org.springframework.data.annotation.Id;
 
+@Entity
 public class Book {
 
-	@Id
+	@Id @GeneratedValue
 	private Integer id;
 	private String title;
 	private String isbn;
-	private LocalDate published;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -29,16 +31,9 @@ public class Book {
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
-	public LocalDate getPublished() {
-		return published;
-	}
-	public void setPublished(LocalDate published) {
-		this.published = published;
-	}
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", title=" + title + ", isbn=" + isbn + ", published=" + published + "]";
+		return "Book [id=" + id + ", title=" + title + ", isbn=" + isbn + "]";
 	}
-	
 	
 }
