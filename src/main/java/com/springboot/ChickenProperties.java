@@ -1,26 +1,21 @@
 package com.springboot;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.ConstructorBinding;
+import org.springframework.util.unit.DataSize;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@ConstructorBinding
 @ConfigurationProperties(prefix = "chicken")
+@Getter
+@AllArgsConstructor
 public class ChickenProperties {
 
 	private int count;
 	private String name;
 	
-	public int getCount() {
-		return count;
-	}
-	public void setCount(int count) {
-		this.count = count;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	
+	private DataSize size;
 	
 }

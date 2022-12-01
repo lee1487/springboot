@@ -26,6 +26,7 @@ public class SpringbootApplication {
 			public void run(ApplicationArguments args) throws Exception {
 				System.out.println(chickenProperties.getName());
 				System.out.println(chickenProperties.getCount());
+				System.out.println(chickenProperties.getSize());
 			}
 		};
 	}
