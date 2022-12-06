@@ -11,16 +11,8 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class SpringbootApplication {
 
-	@Value("${chicken.howlong}")
-	private Period chickenHowLong;
-
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootApplication.class, args);
-	}
-
-	@Bean
-	public ApplicationRunner applicationRunner() {
-		return args -> System.out.println(chickenHowLong.getMonths());
 	}
 
 }
