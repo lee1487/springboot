@@ -16,4 +16,10 @@ public class HelloController {
 	public String hello() {
 		return "chicken " + timeToFry;
 	}
+
+	@GetMapping("/slow")
+	public String slow() throws InterruptedException {
+		Thread.sleep(5000L);
+		return "slow";
+	}
 }
